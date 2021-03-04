@@ -1,0 +1,19 @@
+<button type="$ctrl.type" class="btn ripple" 
+        ng-class="{
+            'btn-block w-100': $ctrl.block,
+            [$ctrl.btnColor]: $ctrl.btnColor,
+            [$ctrl.customClasses]: $ctrl.customClasses,
+            [$ctrl.size]: $ctrl.size,
+            'btn-icon': $ctrl.isLoading || $trl.icon
+        }"
+        ng-disabled="$ctrl.customDisabled"
+        ng-click="click()"
+        id="$ctrl.id">
+    <span class="mr-1" ng-if="$ctrl.icon">
+        <i class="fas" ng-class="{[$ctrl.icon]: $ctrl.icon}"></i>
+    </span>
+    <span class="mr-1" ng-if="$ctrl.isLoading">
+        <i class="fas fa-fan fa-spin fa-flip-both"></i>
+    </span>
+    <span ng-if="$ctrl.text">{{$ctrl.text}}</span>
+</button>

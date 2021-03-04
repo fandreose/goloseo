@@ -1,0 +1,46 @@
+<section>
+    <base-breadcrumbs items="state.breadcrumbs"></base-breadcrumbs>
+</section>
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col-xl-4 offset-xl-4 ">
+            <div class="card">
+                <div class="card-header bg-white">
+                    Profilo
+                </div>
+                <div class="card-body">
+                    <form ng-submit="SavePassword()">
+                        <div class="row">
+                            <div class="col-md">
+                                <h4 class="font-weight-bold">{{state.user.name}}</h4>
+                                <p>
+                                    Benvenuto nella pagina del tuo profilo.
+                                    Qui puoi modificare alcune impostazioni del tuo account
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md">
+                                <base-select ng-model="state.language.selected" items="state.language.list" label="'Linguaggio'">
+                            </base-select>
+                        </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md">
+                                <base-input type="'password'" label="'Nuova password'" ng-model="state.newPassword"
+                                placeholder="'Sc3gl1l4.C0mpl1c@t@!'"></base-input>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md">
+                                <div class="float-right">
+                                    <base-button type="submit" color="primary" text="aggiorna"></base-button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

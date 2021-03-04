@@ -1,0 +1,23 @@
+<div class="form-group" ng-class="{[$ctrl.wrapperClasses]: $ctrl.wrapperClasses}">
+    <label ng-if="$ctrl.label">{{$ctrl.label}} </label> 
+    <div ng-class="{'input-group':$ctrl.rightIcon || $ctrl.leftIcon || $ctrl.type.toLowerCase()=='password' || visible==1}">
+        <div class="input-group-prepend" ng-if="$ctrl.leftIcon">
+            <span class="input-group-text"><i class="fas fa-border-all"></i></span>
+        </div>
+        <input ng-disabled="{{$ctrl.disabled}}" class="form-control"
+            ng-class="{'is-invalid': $ctrl.error, 'is-valid': $ctrl.valid,  [$ctrl.inputClasses]: $ctrl.inputClasses}"
+            name="{{$ctrl.name}}" type="{{$ctrl.type}}" placeholder="{{$ctrl.placeholder}}" ng-model="$ctrl.ngModel"
+            ng-required="$ctrl.required">
+        <div class="input-group-append" ng-if="$ctrl.rightIcon || $ctrl.type.toLowerCase()=='password' || visible==1">
+            <span class="input-group-text">
+                <i ng-if="$ctrl.type.toLowerCase()!='password' && visible==0" class="fas fa-border-all"></i>
+                <i ng-click="changeType()" ng-if="$ctrl.type.toLowerCase()=='password' && visible==0" class="fas fa-eye"></i>
+                <i ng-if="visible==1" class="fas fa-eye-slash" ng-click="changeType()"></i>
+            </span>
+        </div>
+    </div>
+    <span class="text-warning" ng-show="$ctrl.error">
+        {{$ctrl.error}}
+    </span>
+</div>
+

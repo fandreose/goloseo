@@ -1,0 +1,15 @@
+<div class="card shadow" id="{{$ctrl.cardId}}">
+    <div class="card-header bg-white" ng-class="{[$ctrl.headerClasses]: $ctrl.headerClasses}">
+        <div class="row align-items-center">
+            <div class="col">
+                <h4 class="mb-0" ng-bind-html="$ctrl.title"></h4>
+            </div>
+            <div class="col-md-auto" ng-transclude="header"></div>
+        </div>
+    </div>
+    <div class="card-body" ng-class="{[$ctrl.bodyClasses]: $ctrl.bodyClasses}" ng-transclude="body">
+    </div>
+    <div ng-transclude="footer">
+        <!-- <div class="card-footer bg-white" ng-class="{[$ctrl.footerClasses]: $ctrl.footerClasses}"></div> -->
+    </div>
+</div>

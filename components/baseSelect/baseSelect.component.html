@@ -1,0 +1,13 @@
+<div class="form-group" ng-class="{[$ctrl.wrapperClasses]: $ctrl.wrapperClasses}">
+    <label ng-if="$ctrl.label">{{$ctrl.label}}</label>
+    <ui-select ng-disabled="$ctrl.disabled" ng-model="$ctrl.ngModel" ng-required="$ctrl.required" theme="selectize" title="{{$ctrl.name}}">
+        <ui-select-match placeholder="{{$ctrl.placeholder}}" >
+            {{$select.selected[optionLabel]}}
+        </ui-select-match>
+        <ui-select-choices group-by="$ctrl.groupBy" repeat="item[optionId] as item in ($ctrl.items | filter: $select.search)">
+            <div ng-bind-html="item[optionLabel] | highlight: $select.search">
+                <span ng-transclude="template"></span>
+            </div>
+        </ui-select-choices>
+    </ui-select>
+</div>

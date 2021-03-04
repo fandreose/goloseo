@@ -1,0 +1,12 @@
+tr.ng-enter {
+    transition: 0.6s all;
+    opacity: 0;
+}
+
+tr.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

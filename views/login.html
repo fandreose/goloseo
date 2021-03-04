@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <div id="background-container" class="position-fixed d-none d-md-block" style="top: 0; left: 0; right: 0">
+        <div class="row no-gutters h-100vh">
+            <div class="col-7 p-0 bg-primary">
+                <!-- <div class="bg-primary bg-image-cover" style="background-image: url('assets/img/backgrounds/working-men.jpg')"></div> -->
+            </div>
+            <div class="col-5 bg-white">
+            </div>
+        </div>
+    </div>
+    <section class="d-flex align-items-center" style="min-height: 100vh;">
+        <div class="d-flex flex-wrap overflow-auto py-5 w-100">
+            <div class="d-none d-md-block col-4 offset-1">
+                <div class="d-flex flex-column justify-content-center">
+                    <div>
+                        <h1 class="text-white"><b>Autoware. Manufactoring made smart</b></h1>
+                        <p class="text-white mt-5">
+                            Il migliore ed il più grande System Integrator europeo che implementa soluzioni 
+                            di Smart Manufacturing e supporta la trasformazione digitale delle aziende del 
+                            settore manifatturiero.
+                        </p>
+                        <p class="text-white">
+                            Promuoviamo la curiosità, l’innovazione e la creatività per essere i migliori 
+                            nel creare le soluzioni più efficaci.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5 offset-sm-2">
+                <!-- Logo visibile solo in mobile -->
+                <div class="row">
+                    <div class="col d-md-none pb-5">
+                        <div class="container">
+                            <img src="assets/img/logo.jpg" height="50">
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-0">
+                    <div class="container">
+                        <div class="d-flex justify-content-center">
+                            <div class="px-0 col-md-10 col-lg-8">
+                                <h3 class="display-3">{{'pages.login.title' | translate}}</h3>
+                                <p ng-if="state.error" class="text-danger">{{state.error}}</p>
+                                <form ng-submit="login()">
+                                    <base-input label="'pages.login.mail' | translate" type="'email'" ng-model="state.username" required="true"></base-input>
+                                    <base-input label="'pages.login.password' | translate" type="'password'" ng-model="state.password" required="true"></base-input>
+                                    <base-button tipe="submit" custom-classes="my-4" block="true" color="primary" text="{{'pages.login.login' | translate}}" is-loading="state.isLoading"></base-button>
+                                    <a href="#/forgot-password">{{'pages.login.recover' | translate}}</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .bg-image-cover {
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        opacity: 0.5
+    }
+
+    .bg-image-cover:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: inherit;
+        /*grayscale for background image*/
+        -webkit-filter: grayscale(1); 
+        -webkit-filter: grayscale(100%); 
+        -moz-filter: grayscale(100%);
+        filter: gray; 
+        filter: grayscale(100%);
+        filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+    }
+</style>

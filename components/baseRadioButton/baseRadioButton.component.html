@@ -1,0 +1,7 @@
+<div class="custom-control custom-radio mb-3 {{$ctrl.wrapperClasses}}">
+    <input name="{{$ctrl.name}}" ng-class="{[$ctrl.inputClasses]: $ctrl.inputClasses}" class="custom-control-input" id="{{idRadio}}"
+        type="radio" ng-value="$ctrl.radioValue" ng-model="$ctrl.ngModel" ng-disabled="{{$ctrl.disabled}}" ng-checked="{{$ctrl.value}}">
+    <label class="custom-control-label" for="{{idRadio}}" ng-if="$ctrl.label">
+        <span>{{$ctrl.label}}</span>
+    </label>
+</div>

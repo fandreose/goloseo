@@ -1,0 +1,236 @@
+.card {
+    position: relative;
+
+    &.bg-primary {
+      background: linear-gradient(60deg, lighten($primary, 10%), darken($primary, 10%));
+    }
+    &.bg-info {
+      background: linear-gradient(60deg, lighten($blue, 10%), darken($blue, 10%));
+    }
+    &.bg-success {
+      background: linear-gradient(60deg, lighten($green, 10%), darken($green, 10%));
+    }
+    &.bg-warning {
+      background: linear-gradient(60deg, lighten($orange, 10%), darken($orange, 10%));
+    }
+    &.bg-danger {
+      background: linear-gradient(60deg, lighten($red, 10%), darken($red, 10%));
+    }
+
+    
+}
+
+.card [class*="header-"] .card-title a, 
+.card [class*="header-"] .card-title, 
+.card [class*="header-"] .icon i, 
+.card[class*="bg-"] .card-title a, 
+.card[class*="bg-"] .card-title, 
+.card[class*="bg-"] .icon i {
+    color: $white;
+}
+
+.profile-page {
+    .card-profile {
+        margin-top: -150px;
+
+        .card-profile-image {
+            position: relative;
+            //min-height: 130px;
+
+            img {
+                max-width: 180px;
+                border-radius: $border-radius;
+                @extend .shadow;
+                transform: translate(-50%,-30%);
+                position: absolute;
+                left: 50%;
+                transition: $transition-base;
+
+                &:hover {
+                    transform: translate(-50%, -33%);
+                }
+            }
+        }
+
+        .card-profile-stats {
+            padding: 1rem 0;
+
+            > div {
+                text-align: center;
+                margin-right: 1rem;
+                padding: .875rem;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .heading {
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    display: block;
+                }
+                .description {
+                    font-size: .875rem;
+                    color: $gray-500;
+                }
+            }
+        }
+
+        .card-profile-actions {
+            padding: .875rem;
+        }
+
+        @include media-breakpoint-down(xs) {
+            .card-profile-actions {
+                margin-top: 110px;
+            } 
+        }
+
+        @include media-breakpoint-between(sm, md) {
+            .card-profile-stats {
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+// Card with blockquotes
+
+.card {
+    .card-blockquote {
+        padding: 2rem;
+        position: relative;
+
+        .svg-bg {
+            display: block;
+            width: 100%;
+            height: 95px;
+            position: absolute;
+            top: -94px;
+            left: 0;
+        }
+    }
+}
+
+// Animated cards
+
+.card-lift--hover {
+    &:hover {
+        transform: translateY(-10px);
+        @include transition($transition-base);
+    }
+}
+
+// Card pricing
+
+.card {
+  .card-category:not([class*="text-"]) {
+    color: $gray-600;
+  }
+  .card-category{
+    margin-top: 10px;
+
+    .material-icons{
+      position: relative;
+      top: 8px;
+      line-height: 0;
+    }
+  }
+}
+
+.card-pricing{
+    &:after{
+        background-color: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .price-old {
+      font-weight: 300;
+      text-decoration: line-through;
+    }
+
+    text-align: center;
+
+    .card-title{
+        margin-top: 30px;
+    }
+    .card-body{
+        padding: 15px !important;
+        margin: 0 !important;
+    }
+
+    .icon{
+        padding: 10px 0 0px;
+
+        i{
+            font-size: 55px;
+            border: 1px solid #E5E5E5;
+            border-radius: 50%;
+            width: 130px;
+            line-height: 130px;
+            height: 130px;
+        }
+    }
+
+    h1{
+        small{
+            font-size: 18px;
+            display: inline-flex;
+            height: 0;
+
+            &:first-child{
+                position: relative;
+                top: -10px;
+                font-size: 26px;
+            }
+        }
+    }
+
+
+    ul{
+        list-style: none;
+        padding: 0;
+        max-width: 240px;
+        margin: 10px auto;
+
+        li{
+            color: $gray-600;
+            text-align: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba($gray-600,.3);
+
+            &:last-child{
+                border: 0;
+            }
+            b{
+                color: $black;
+            }
+            i{
+                margin-right: 5px;
+                position: relative;
+            }
+        }
+    }
+
+    &.card-background,
+    &[class*="bg-"]{
+        ul{
+            li{
+                color: $white;
+                border-color: rgba($white,.3);
+
+                b{
+                    color: $white;
+                    font-weight: 700;
+                }
+            }
+        }
+        [class*="text-"],
+        .card-category{
+            color: $white !important;
+        }
+    }
+
+    .card-footer{
+        z-index: 2;
+    }
+}

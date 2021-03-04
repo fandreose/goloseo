@@ -1,0 +1,28 @@
+.selectize-input {
+    background-image:none !important;
+    background-color:transparent !important;
+    display: block;
+    width: 100%;
+    height: calc(2.75rem + 2px);
+    padding: 0.625rem 0.75rem;
+    font-size: $font-size-base;
+    min-width: 80px;
+    line-height: 1.5;
+    color: #8898aa;
+    background-clip: padding-box;
+    border: 1px solid #cad1d7;
+    border-radius: 0.125rem;
+}
+
+input.ui-select-search{
+    font-size: $font-size-base;
+    color: #8898aa;
+}
+
+.ui-select-match {
+    color:$default;
+}
+
+.selectize-control.single .selectize-input, .selectize-dropdown.single{
+    border-color: $input-border-color;
+}

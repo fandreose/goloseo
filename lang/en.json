@@ -1,0 +1,57 @@
+{
+    "pagination": {
+        "show": "pagination"
+    },
+    "button": {
+        "changeLanguage": "Change language"
+    },
+    "vendors": {
+        "label": {
+            "email": "insert email"
+        },
+        "datepicker": {
+            "language": "en",
+            "format": "YYYY/MM/DD"
+        },
+        "daterange": {
+            "direction": "ltr",
+            "format": "YYYY/MM/DD",
+            "separator": " - ",
+            "applyLabel": "Apply",
+            "cancelLabel": "Cancel",
+            "fromLabel": "From",
+            "toLabel": "To",
+            "customRangeLabel": "Custom",
+            "daysOfWeek": {
+                "dom": "Sun",
+                "lun": "Mon",
+                "mar": "Tue",
+                "mer": "Wed",
+                "gio": "Thu",
+                "ven": "Fri",
+                "sab": "Sat"               
+            },
+            "monthNames": {
+                "gen": "January",
+                "feb": "February",
+                "mar": "March",
+                "apr": "April",
+                "mag": "May",
+                "giu": "June",
+                "lug": "July",
+                "ago": "August",
+                "set": "September",
+                "ott": "October",
+                "nov": "November",
+                "dic": "December"
+            },
+            "firstDay": "1",
+            "today": "Today",
+            "yesterday": "Yesterday",
+            "last7Day": "Last 7 Day",
+            "last30Day": "Last 30 Day",
+            "thisMonth": "This Month",
+            "lastMonth": "Last Month"
+        }
+    }
+}

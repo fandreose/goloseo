@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/components/baseTable/baseTable.component.css">
+<div class="table-responsive">
+    <table class="table align-items-center">
+        <thead class="thead-light">
+            <tr class="cursor-pointer">
+                <th colspan="1" ng-if="state.radio" width="50px"></th>
+                <th ng-if="state.checkbox" width="50px">
+                    <input type="checkbox" ng-model="state.allSelected" ng-change="selectAllRows()">
+                </th>
+                <th ng-click="column.sortable && sortBy(column.name)" ng-repeat="column in $ctrl.columnDefs" ng-class="{'cursor-pointer': column.sortable}">
+                    {{column.displayName}}
+                    <i ng-if="column.sortable" class="fas ml-1" ng-class="{
+                            'fa-sort text-muted': !sorted(column.name),
+                            'fa-sort-amount-down-alt': sortedAsc(column.name),
+                            'fa-sort-amount-down': sortedDesc(column.name)
+                        }"></i>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="skeleton in state.skeletons track by $index" ng-if="$ctrl.isLoading">
+                <td colspan="100">
+                    <div class="bg-lighter p-2 position-relative overflow-hidden rounded">
+                        <placeholder-loading></placeholder-loading>
+                    </div>
+                </td>
+            </tr>
+            <tr dir-paginate="row in $ctrl.data | orderBy: state.sorting.key :state.sorting.reverse | itemsPerPage: state.pagination.itemsPerPage" pagination-id="state.id" ng-if="!$ctrl.isLoading">
+                <td ng-if="state.checkbox || state.radio">
+                        <input type="checkbox" ng-model="row.selected" ng-change="selectRow(row)" ng-if="state.checkbox">
+                        <input type="radio" name="base-table-radio" ng-model="row.selected" ng-change="selectRow(row)" ng-if="state.radio">
+                </td>
+                <td ng-repeat="columnDef in $ctrl.columnDefs">
+                    <span ng-if="columnDef.cellTemplate" bind-html-compile="columnDef.cellTemplate"></span>
+                    <span ng-if="!columnDef.cellTemplate">{{getCell(row,columnDef)}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="p-3">
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <span class="mr-1">{{ 'pagination.show' | translate }}</span>
+                <select class="w-auto d-inline-block form-control my-20" ng-options="items for items in [10,25,50,100]"
+                    ng-model="state.pagination.itemsPerPage"></select>
+                <span class="ml-1">{{ 'pagination.entries' | translate }}. {{'pagination.total' | translate }} <b>{{$ctrl.data.length}}</b></span>
+                <span class="ml-1" ng-if="$ctrl.selectable">
+                    {{ 'components.baseTable.selected' | translate }} <b>{{state.selectedCount}}</b>
+                </span>
+            </div>
+            <div class="col-md-6 text-right">
+                <dir-pagination-controls pagination-id="state.id" max-size="7" direction-links="true" boundary-links="true"></dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

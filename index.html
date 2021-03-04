@@ -1,0 +1,194 @@
+<html lang="it" ng-app="argon">
+    <head>
+        <meta charset="utf-8">
+        <title>Sipag Bisalta SpA</title>    
+        <link rel="stylesheet" href="node_modules/ui-select/dist/select.min.css">
+        <link rel="stylesheet" href="node_modules/selectize/dist/css/selectize.default.css">
+        <link rel="stylesheet" href="node_modules/daterangepicker/daterangepicker.css">
+        <link rel="stylesheet" href="assets/fonts/material-icons.css">
+        <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="node_modules/toastr/build/toastr.min.css">
+        <link rel="stylesheet" href="assets/fonts/work-sans.css">
+        <link rel="stylesheet" href="assets/fonts/open-sans.css">
+        <link rel="stylesheet" href="assets/css/argon.css">
+        <link rel="icon" href="assets/img/logo.jpg" type="image/x-icon" />
+        <base href="/" />
+
+        <!-- per abilitare codice lettura barcode su pistola -->
+        <meta HTTP-Equiv="scanner" Content="enable">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    </head>
+    <body ng-controller="mainCtrl" data-ng-class="{'bg-lightest': state.navbar}">
+        <div data-ng-show="state.sidebar" class="sidebar expanded bg-white border-right" name="sidebar">
+            <div class="d-flex flex-column h-100">
+                <!-- Logo -->
+                <div class="logo px-4 pt-4">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <a href="#/">
+                            <img src="./assets/img/logo.jpg" height="48">
+                        </a>
+                    </div>
+                </div>
+                <!-- Navigazione -->
+                <div class="py-4 position-relative routes">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a class="nav-link" href="#/qr-code" data-is-active="active">Scanner</a>
+                            <a class="nav-link" href="#/events" data-is-active="active">Eventi</a>
+                            <a class="nav-link" href="#/non-compliances" data-is-active="active">Non conformità</a>
+                            <a class="nav-link" href="#/analysis" data-is-active="active">Analisi</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- <main class="h-100 overflow-auto" data-ng-class="{'sidebar-expanded': state.sidebar, 'sidebar-collapsed': !state.sidebar, 'bg-lightest': state.navbar}"> -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-2" ng-show="state.navbar" data-ng-class="{'sidebar-expanded': state.sidebar, 'sidebar-collapsed': !state.sidebar}">
+                <button type="button" class="d-none d-xl-inline-block btn btn-link btn-icon-only text-default" ng-click="toggleSidebar()">
+                    <i class="fas" ng-class="{'fa-chevron-left': state.sidebar, 'fa-chevron-right': !state.sidebar}"></i>
+                </button>
+
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars text-default"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar-default">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="#/">
+                                    <img src="./assets/img/logo.jpg">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav ml-lg-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link nav-link-icon" href="javascript:;" id="navbar-default_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user"></i>
+                                <span class="nav-link-inner--text d-lg-none">Utente</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="navbar-default_dropdown_1">
+                                <h5 class="ml-3 font-weight-bold">{{state.user.name}}</h5>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#/profile">Modifica profilo</a>
+                                <a class="dropdown-item" href="javascript:;" ng-click="logout()">Esci</a>
+                            </div>
+                        </li>  
+                    </ul>
+                </div>
+                <!-- <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle navbar-brand" href="javascript:;" id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{'button.changeLanguage' | translate}}</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-primary_dropdown_1">
+                        <a class="dropdown-item" ng-click="changeLanguage('it')">Italiano <img src="assets/img/it-32.png" alt="Flag italy" class="img-fluid float-right "></a>
+                        <a class="dropdown-item" ng-click="changeLanguage('en')">English <img src="assets/img/uk-32.png" alt="Flag uk" class="img-fluid float-right "></a>
+                    </div>
+                </li>             -->
+            </nav>
+            <div class="container-fluid" data-ng-class="{'sidebar-expanded': state.sidebar, 'sidebar-collapsed': !state.sidebar}">
+                <div id="nested-html" data-ng-view></div>
+                <div class="footer px-3 pt-4" ng-if="state.navbar">
+                    <div class="row align-items-center">
+                        <div class="col-md text-center text-md-left">
+                            <small>
+                                <b>Copyright</b><i class="far fa-copyright"></i> {{state.year}}
+                                <b class="ml-2">Versione</b> 1.0.0
+                            </small>
+                        </div>
+                        <div class="col-md-auto text-center text-md-left">
+                            <img src="./assets/img/logo-orig.png" alt="Autoware logo" class="ml-3" style="height: 32px;"> 
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="home-overlay" ng-if="state.sidebar"></div>
+            </div>
+            <back-to-top ng-if="state.navbar"></back-to-top>
+        <!-- </main> -->
+
+        <!-- Librerie JS -->
+        <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+        <!-- <script type="text/javscriptt" src="node_modules/popper.js/dist/umd/popper.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/vendor/argon.min.js"></script>
+        <script type="text/javascript" src="node_modules/moment/min/moment.min.js"></script>
+        <script type="text/javascript" src="node_modules/daterangepicker/daterangepicker.js"></script>
+        <script type="text/javascript" src="node_modules/moment/min/moment.min.js"></script>
+        <script type="text/javascript" src="assets/vendor/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="assets/vendor/bootstrap-datepicker-it.js"></script>
+        <script type="text/javascript" src="node_modules/toastr/build/toastr.min.js"></script>
+        <script type="text/javascript" src="node_modules/chart.js/dist/Chart.min.js"></script>
+        
+        <!-- Librerie AngularJS -->
+        <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+        <script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-translate/dist/angular-translate.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+        <script type="text/javascript" src="node_modules/angular-uuid/angular-uuid.js"></script>
+        <script type="text/javascript" src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+        <script type="text/javascript" src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+        <script type="text/javascript" src="node_modules/ui-select/dist/select.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-bind-html-compile/angular-bind-html-compile.min.js"></script>
+        <script type="text/javascript" src="node_modules/ng-csv/build/ng-csv.min.js"></script>
+        <script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
+        <!-- accedo a api pistola -->
+	    <script type="text/javascript" src="./assets/vendor/EnterpriseBrowser/1.6/BackwardCompatibility/Android/elements.js"></script>
+
+        <!-- File di configurazione applicazione -->
+        <script type="text/javascript" src="app.config.js"></script>
+        <script type="text/javascript" src="app.routes.js"></script>
+        <script type="text/javascript" src="app.translations.js"></script>
+
+        <!-- Components -->
+        <script type="text/javascript" src="components/baseAlert/baseAlert.component.js"></script>
+        <script type="text/javascript" src="components/backToTop/backToTop.component.js"></script>
+        <script type="text/javascript" src="components/baseButton/baseButton.component.js"></script>
+        <script type="text/javascript" src="components/baseBreadcrumbs/baseBreadcrumbs.component.js"></script>
+        <script type="text/javascript" src="components/baseCard/baseCard.component.js"></script>
+        <script type="text/javascript" src="components/baseChart/baseChart.component.js"></script>
+        <script type="text/javascript" src="components/baseCheckBox/baseCheckBox.component.js"></script>
+        <script type="text/javascript" src="components/baseInput/baseInput.component.js"></script>
+        <script type="text/javascript" src="components/baseSelect/baseSelect.component.js"></script>
+        <script type="text/javascript" src="components/baseTable/baseTable.component.js"></script>
+        <script type="text/javascript" src="components/baseToggle/baseToggle.component.js"></script>
+        <script type="text/javascript" src="components/baseTextarea/baseTextarea.component.js"></script>
+        <script type="text/javascript" src="components/datePicker/datePicker.component.js"></script>
+        <script type="text/javascript" src="components/dateRange/dateRange.component.js"></script>
+        <script type="text/javascript" src="components/baseModal/baseModal.component.js"></script>
+        <script type="text/javascript" src="components/baseRadioButton/baseRadioButton.component.js"></script>
+
+        <!-- Controllers -->
+        <script type="text/javascript" src="controllers/admin.controller.js"></script>
+        <script type="text/javascript" src="controllers/login.controller.js"></script>
+        <script type="text/javascript" src="controllers/main.controller.js"></script>
+        <script type="text/javascript" src="controllers/profile.controller.js"></script>
+        <script type="text/javascript" src="controllers/users.controller.js"></script>
+
+        <!-- Directives -->
+        <script type="text/javascript" src="directives/virtualKeyboard.directive.js"></script>
+
+        <!-- Factories -->
+        <script type="text/javascript" src="factories/toastr.factory.js"></script>
+        <script type="text/javascript" src="factories/authHttpResponseInterceptor.factory.js"></script>
+        <script type="text/javascript" src="factories/underscore.factory.js"></script>
+        
+        <!-- Services -->
+        <script type="text/javascript" src="services/authentication.service.js"></script>
+        <script type="text/javascript" src="services/errorsHandler.service.js"></script>
+        <script type="text/javascript" src="services/store.service.js"></script>
+        <script type="text/javascript" src="services/users.service.js"></script>
+        <script type="text/javascript" src="services/crypto.service.js"></script>
+    </body>
+
+</html>
+

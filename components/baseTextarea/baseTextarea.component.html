@@ -1,0 +1,10 @@
+<div class="form-group {{$ctrl.wrapperClasses}}">
+    <label>{{$ctrl.label}} </label> 
+    <textarea ng-disabled="{{$ctrl.disabled}}" class="form-control" ng-required="$ctrl.required"
+        ng-class="{'is-invalid': $ctrl.error, 'is-valid': $ctrl.valid,  [$ctrl.inputClasses]: $ctrl.inputClasses}"
+        name="{{$ctrl.name}}" placeholder="{{$ctrl.placeholder}}" ng-rows="$ctrl.rows" ng-model="$ctrl.ngModel">
+    </textarea>
+    <span class="text-warning" ng-show="$ctrl.error">
+        {{$ctrl.error}}
+    </span>
+</div>

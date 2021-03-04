@@ -1,0 +1,10 @@
+<div class="form-group {{$ctrl.wrapperClasses}}">
+    <label ng-if="$ctrl.label">{{$ctrl.label}}</label>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-calendar"></i></span>
+        </div>
+        <input class="flatpickr flatpickr-input form-control {{$ctrl.inputClasses}}" type="text"
+            placeholder="{{$ctrl.placeholder}}" id="{{$ctrl.idDatePicker}}">
+    </div>
+</div>

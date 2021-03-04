@@ -1,0 +1,105 @@
+.sidebar {
+    box-shadow: $box-shadow;
+
+    .btn-structure {
+      text-transform: none;
+      color: $body-color;
+      font-weight: $font-weight-normal;
+      border: none;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      z-index: 100;
+      &:focus {
+        box-shadow: none;
+      }
+      &:hover {
+        transform: none;
+      }
+    }
+    
+
+    .navbar-nav {
+        .nav-link {
+            padding: 0.5rem 1rem;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+
+            &.active {
+                color: $primary !important;
+                border-radius: $border-radius;
+                border: 2px solid $primary;
+                background-color: $gray-100;
+                font-weight: $font-weight-bold;
+            }
+        }
+    }
+
+    .category {
+      padding-top: 1.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      text-transform: uppercase;
+      font-size: 80%;
+      font-weight: $font-weight-black;
+    }
+}
+
+.expanded {
+  width:250px; 
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: block;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 250px;
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 0.88rem;
+  transition: all ease-in-out 0.4s;
+
+  &.ng-hide {
+    opacity: 0;
+  }
+}
+
+.sidebar-expanded {
+  transition: all 0.4s ease;
+  margin-left: 250px;
+}
+
+.sidebar-collapsed {
+  transition: all 0.4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  margin-left: 0px;
+}
+
+.home-overlay {
+  position: absolute;
+  top: 64;
+  left: 250px;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background-color: $gray-900;
+  opacity: 0.2;
+}
+
+.home-overlay.ng-enter {
+  transition: 0.6s all;
+  opacity: 0;
+}
+
+.home-overlay.ng-enter.ng-enter-active {
+  opacity: 0.2;
+}
+
+.home-overlay.ng-leave {
+  transition: 0.6s all;
+  opacity: 0.2;
+}
+
+.home-overlay.ng-leave.ng-leave-active {
+  opacity: 0;
+}

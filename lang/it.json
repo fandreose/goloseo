@@ -1,0 +1,263 @@
+{
+    "pagination": {
+        "show": "Mostra",
+        "entries": "elementi per pagina",
+        "total": "Totali: "
+    },
+    "button": {
+        "changeLanguage": "Cambia lingua"
+    },
+    "vendors": {
+        "label": {
+            "email": "Inserisci l'email"
+        },
+        "datepicker": {
+            "language": "it",
+            "format": "DD/MM/YYYY"
+        },
+        "daterange": {
+            "direction": "ltr",
+            "format": "DD/MM/YYYY",
+            "separator": " - ",
+            "applyLabel": "Applica",
+            "cancelLabel": "Annulla",
+            "fromLabel": "Da",
+            "toLabel": "A",
+            "customRangeLabel": "Personalizzata",
+            "daysOfWeek": {
+                "dom": "Do",
+                "lun": "Lu",
+                "mar": "Ma",
+                "mer": "Me",
+                "gio": "Gi",
+                "ven": "Ve",
+                "sab": "Sa"
+            },
+            "monthNames": {
+                "gen": "Gennaio",
+                "feb": "Febbraio",
+                "mar": "Marzo",
+                "apr": "Aprile",
+                "mag": "Maggio",
+                "giu": "Giugno",
+                "lug": "Luglio",
+                "ago": "Agosto",
+                "set": "Settembre",
+                "ott": "Ottobre",
+                "nov": "Novembre",
+                "dic": "Dicembre"
+            },
+            "firstDay": "1",
+            "today": "Oggi",
+            "yesterday":"Ieri",
+            "last7Day":"Ultimi 7 giorni",
+            "last30Day":"Ultimi 30 giorni",
+            "thisMonth":"Questo mese",
+            "lastMonth":"Mese scorso"
+        }
+    },
+    "models": {
+        "category": {
+            "name": "Nome"
+        }
+    },
+    "components": {
+        "anonimousUser": {
+            "label": "Anonimo"
+        },
+        "baseTable": {
+            "selected": "Selezionati:"
+        },
+        "categorySelect": {
+            "label": "Categorie"
+        },
+        "itemsList": {
+            "events": "Eventi",
+            "non_compliances": "Non conformità",
+            "filters": {
+                "events": "Riferito a",
+                "non_compliances": "Assegnato a",
+                "statuses": "Stati",
+                "description": "Descrizione"
+            },
+            "btnFilters": "Filtri",
+            "btnNew": "Nuovo",
+            "btnResetFilters": "Resetta filtri"
+        }
+    },
+    "pages": {
+        "analysis": {
+            "edit": {
+                "breadcrumb": {
+                    "home": "Home",
+                    "analysis": "Analisi",
+                    "edit": "Modifica" 
+                },
+                "btnPrint": "versione stampabile",
+                "btnUpdate": "aggiorna"
+            },
+            "index": {
+                "breadcrumb": {
+                    "home": "Home",
+                    "analysis": "Analisi" 
+                },
+                "title": "Storico analisi",
+                "exportDescription": "Per esportare i dati filtra per gruppo e seleziona almeno un elemento",
+                "btnFilters": "filtri",
+                "btnExport": "Esporta",
+                "btnResetFilters": "Resetta filtri",
+                "btnNew": "nuovo",
+                "filters": {
+                    "code": "Codice",
+                    "category": "Categoria",
+                    "group": "Gruppo",
+                    "article": "Articolo",
+                    "plant": "Impianto",
+                    "analysisDate": "Data analisi",
+                    "sampleDate": "Data campione"
+                },
+                "headers": {
+                    "code": "Codice",
+                    "category": "Categoria",
+                    "analysisGroup": "Gruppo",
+                    "article": "Articolo",
+                    "plant": "Impianto",
+                    "analysisDate": "Data analisi",
+                    "sampleDate": "Data campione"
+                }
+            },
+            "new": {
+                "breadcrumb": {
+                    "home": "Home",
+                    "analysis": "Analisi",
+                    "new": "Nuova" 
+                },
+                "title": "Nuova analisi",
+                "description": "Per la creazione di una nuova analisi serve indicare il gruppo di appartenenza, gli eventuali articolo e impianto desiderato. Una volta premuto il bottone di creazione verrà caricata la pagina di inserimento dati",
+                "analysis": "Analisi",
+                "sample": "Tipo campione",
+                "plant": "Nome impianto",
+                "btnCreate": "crea analisi"
+            },
+            "print": {
+                "breadcrumb": {
+                    "home": "Home",
+                    "analysis": "Analisi",
+                    "print": "Stampa" 
+                },
+                "btnEdit": "modifica",
+                "btnPrint": "stampa"
+            }
+        },
+        "events": {
+            "index": {
+                
+            },
+            "edit": {
+                "cardTitle": "Modifica evento",
+                "title": "Titolo",
+                "referedTo": "Riferito a (opzionale)",
+                "description": "Descrizione",
+                "btnBack": "torna",
+                "btnSubmit": "aggiorna"
+            }
+        },
+        "nonCompliances": {
+            "edit": {
+                "breadcrumb": {
+                    "home": "Home",
+                    "nonCompliance": "Non conformità",
+                    "edit": "Modifica"
+                },
+                "card": {
+                    "title": "Modifica non conformità",
+                    "body": {
+                        "bindToEvent": "Associa ad un evento (facoltativo)",
+                        "btnSubmit": "Aggiorna",
+                        "btnBack": "torna"
+                    }
+                }
+            },
+            "form": {
+                "title": "Titolo",
+                "assignedTo": "Assegnato a",
+                "assignedToPlaceholder": "Nessuno",
+                "description": "Descrizione"
+            },
+            "index": {
+                "breadcrumb": {
+                    "home": "Home",
+                    "nonCompliance": "Non conformità"
+                },
+                "notes": {
+                    "title": {
+                        "ANALISI_CAUSE": "Analisi cause e/o spunti",
+                        "DESCRIZIONE_AZIONE": "Descrizione azione", 
+                        "TRATTAMENTO": "Trattamento e provvedimenti immediati"
+                    },
+                    "placeholder": "Inserisci il testo della nuova nota",
+                    "btnSubmit": "inserisci nota"
+                },
+                "event": {
+                    "title": "Evento",
+                    "createdBy": "Creato da",
+                    "assignedTo": "assegnata a",
+                    "btnStatuses": {
+                        "infoCollection": "Raccogli dati",
+                        "close": "Chiudi"
+                    }
+                }
+            },
+            "new": {
+                "breadcrumb": {
+                    "home": "Home",
+                    "nonCompliance": "Non conformità",
+                    "new": "Nuova"
+                },
+                "card": {
+                    "title": "Nuova non conformità",
+                    "body": {
+                        "bindToEvent": "Associa ad un evento",
+                        "btnSubmit": "Crea non conformità"
+                    }
+                }
+            }
+        },
+        "home": {
+            "wellcome": "Benvenuto",
+            "description": "Dalla home page dove ti trovi potrai facilmente muoverti nelle pagine che desideri senza utilizzare il menù laterale",
+            "scanner": {
+                "title": "Scanner QR",
+                "description": "Legge il QR code e fornisce le informazioni in esso contenute",
+                "btn": "scannerizza"
+            },
+            "events": {
+                "title": "Registro eventi",
+                "description": "Il registro dove vengono annotate le segnalazioni",
+                "btn": "consulta"
+            },
+            "analysis": {
+                "title": "Laboratorio analisi",
+                "description": "Dove vengono acquisiti i dati di analisi di laboratorio dei materiali di produzione",
+                "btn": "analizza"
+            },
+            "nonCompliances": {
+                "title": "Non conformità",
+                "description": "Insieme delle azioni intraprese seguito o meno di una segnalazione",
+                "btn": "visualizza"
+            } 
+        },
+        "login": {
+            "title": "Accesso",
+            "mail": "Indirizzo mail",
+            "password": "Password",
+            "login": "Accedi",
+            "recover": "Non ricordo la password"
+        },
+        "order":{
+            "title":"Scanner",
+            "order":"Ordine",
+            "silosName":"Silos"
+        }
+    }
+}

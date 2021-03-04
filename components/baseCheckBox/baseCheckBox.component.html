@@ -1,0 +1,8 @@
+<div class="custom-control custom-checkbox mb-3 {{$ctrl.wrapperClasses}}">
+    <input name="{{$ctrl.name}}" class="custom-control-input" ng-class="{[$ctrl.inputClasses]: $ctrl.inputClasses}" 
+        ng-disabled="{{$ctrl.disabled}}" id="{{idCheck}}" type="checkbox" ng-model="$ctrl.ngModel" ng-change="$ctrl.ngChange"
+        ng-true-value="{{trueValue}}">
+    <label class="custom-control-label" for="{{idCheck}}">
+        <span>{{$ctrl.label}}</span>
+    </label>
+</div>  

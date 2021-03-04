@@ -1,0 +1,23 @@
+<div class="modal fade" id="{{$ctrl.id}}" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+    aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="modal-title-default">{{$ctrl.title}}</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form ng-submit="onSubmitted()" class="m-0">
+                <div class="modal-body">
+                    <ng-transclude></ng-transclude>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-class="{'btn btn-link ripple': !$ctrl.buttonCancelClass,  [$ctrl.buttonCancelClass]: $ctrl.buttonCancelClass}"
+                        class="ml-auto" data-dismiss="modal">{{$ctrl.buttonCancelText}}</button>
+                    <button type="submit" ng-class="{'btn btn-primary ripple': !$ctrl.buttonSaveClass,  [$ctrl.buttonSaveClass]: $ctrl.buttonSaveClass}">{{$ctrl.buttonSaveText}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
